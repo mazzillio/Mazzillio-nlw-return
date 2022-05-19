@@ -1,6 +1,6 @@
 import { Camera, Trash } from 'phosphor-react-native';
 import React from 'react';
-import { View, TouchableOpacity } from 'react-native';
+import { View, TouchableOpacity, Image} from 'react-native';
 import { theme } from '../../theme';
 
 import { styles } from './styles';
@@ -19,12 +19,18 @@ export function ScreenshotButton({ screenshot, onTakeShot, onRemoveShot }: Scree
         >
             {
                 screenshot ?
-                    <Trash
-                        size={22}
-                        weight='fill'
-                        color={theme.colors.text_secondary}
-                        style={styles.removeIcon}
-                    />
+                    <View>
+                        <Image
+                            style={styles.image}
+                            source={{uri:screenshot}}
+                        />
+                        <Trash
+                            size={22}
+                            weight='fill'
+                            color={theme.colors.text_secondary}
+                            style={styles.removeIcon}
+                        />
+                    </View>
                     :
                     <Camera
                         size={22}

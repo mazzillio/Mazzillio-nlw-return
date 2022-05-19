@@ -6,6 +6,7 @@ import { theme } from '../../theme';
 import { styles } from './styles';
 import { FeedbackType } from '../Widget';
 import { ScreenshotButton } from '../ScreenshotButton';
+import { Button } from '../Button';
 import { feedbackTypes } from '../../utils/feedbackTypes'
 interface FormProps {
     feedbackType: FeedbackType
@@ -42,8 +43,9 @@ export function Form({ feedbackType }: FormProps) {
                 <ScreenshotButton 
                     onTakeShot={()=>{}}
                     onRemoveShot={()=>{}}
-                    screenshot=""
+                    screenshot="https://github.com/mazzillio.png"
                 />
+                <Button isLoading={false} />
             </View>
         </View>
     );
