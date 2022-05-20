@@ -36,12 +36,12 @@ export function Form({ feedbackType, onFeedbackCanceled, onFeedbackSent }: FormP
         }
         setIsSeending(true)
 
-        const foto = screenshot && FileSystem.readAsStringAsync(screenshot,{encoding:'base64'})
+        const foto = screenshot && await FileSystem.readAsStringAsync(screenshot,{encoding:'base64'})
         try {
             await api.post('/feedbacks', {
                 type: feedbackType,
-                screenshot,
-                comment:`data:image/png;base64, ${foto}`
+                screenshot:`data:image/png;base64, ${foto}`,
+                comment
             })
             onFeedbackSent()
         } catch (err) {
